@@ -9,3 +9,12 @@ Form {
     max-width: 300px;
     width: 500px;
 }
+
+input {
+    padding: 10px;
+    border: 1px #abcabc solid;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
