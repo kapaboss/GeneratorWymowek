@@ -16,6 +16,10 @@ const Form = () =>{
 
     const [dateInput, setDateinput] = useState('') // ['', funkcja]
 
+    const [textarea, setTextarea] = useState('') // ['', funkcja]
+
+    const [checkbox, setCheckbox] = useState(false) // ['', funkcja]
+
     function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault()
         console.log(textInput)
@@ -23,6 +27,8 @@ const Form = () =>{
         console.log(rangeInput)
         console.log(dateInput)
         console.log(rangeInput2)
+        console.log(textarea)
+        console.log(checkbox)
     }
 
     function handleTextInputChange(event: React.ChangeEvent<HTMLInputElement>){
@@ -45,6 +51,14 @@ const Form = () =>{
 
     function handleDateInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         setDateinput(event.target.value)
+    }
+
+    function handleTextareaChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+        setTextarea(event.target.value)
+    }
+
+    function handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
+        setCheckbox(event.target.checked)
     }
 
     return(
@@ -90,6 +104,16 @@ const Form = () =>{
                 <input type="range" name="kreatywnosc" min={1} max={5} step={1}
                        value={rangeInput2}
                        onChange={handleRangeInputChange2}/>
+            </label>
+            <label>
+                Szczegóły:
+                <textarea name="szczegoly"
+                          value={textarea}
+                          onChange={handleTextareaChange}/>
+            </label>
+            <label>
+                Czy to pilna wymówka?
+                <input type={"checkbox"} name="pilnaWymowka" checked={checkbox} onChange={handleCheckboxChange}/>
             </label>
             <button type="submit">Wygeneruj</button>
 
