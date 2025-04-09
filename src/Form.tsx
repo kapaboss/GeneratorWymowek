@@ -1,9 +1,13 @@
 import {useState} from "react";
 import * as React from "react";
 
+interface Props{
+    sendData: (a:string) => void
+}
+
+const Form = (props:Props) =>{
 
 
-const Form = () =>{
 
     const [textInput, setTextInput] = useState('') // ['', funkcja]
     // setTextInput("qwe") -> textInput="qwe"
@@ -22,13 +26,7 @@ const Form = () =>{
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault()
-        console.log(textInput)
-        console.log(selectWymowka)
-        console.log(rangeInput)
-        console.log(dateInput)
-        console.log(rangeInput2)
-        console.log(textarea)
-        console.log(checkbox)
+        props.sendData(textInput)
     }
 
     function handleTextInputChange(event: React.ChangeEvent<HTMLInputElement>){
