@@ -1,19 +1,21 @@
 
-interface Props{
-    wiadmosc:Array<string>;
-    a:string;
+interface ListaProps {
+    messages: string[]
 }
 
 
-const Lista = (props: Props) =>{
-    console.log(props)
-    const wymowki = []
-    wymowki.push()
+const Lista = ({messages}: ListaProps) =>{
+
+
     return(
         <>
 
-            <h2>Lista</h2>
-            <p>{props.wiadmosc}</p>
+            <h2>Lista Wymówek: </h2>
+            <ul>
+                {messages.map((w, index) => (
+                    <li key={index}>{w}</li>
+                ))}
+            </ul>
         </>
     )
 }

@@ -1,16 +1,16 @@
 import {useState} from "react";
 import * as React from "react";
 
-interface Props{
-    sendData: (a:string) => void
+interface FormProps {
+    sendString: (text: string) => void;
 }
 
-const Form = (props:Props) =>{
+const Form = ({sendString}: FormProps) =>{
 
 
 
     const [textInput, setTextInput] = useState('') // ['', funkcja]
-    // setTextInput("qwe") -> textInput="qwe"
+
 
     const [selectWymowka, setSelectWymowka] = useState('') // ['', funkcja]
 
@@ -26,7 +26,8 @@ const Form = (props:Props) =>{
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault()
-        props.sendData(textInput)
+        sendString(`${textInput} powód: ${selectWymowka}, wiarygodność: ${rangeInput},
+         data: ${dateInput}, kreatywność: ${rangeInput2}, szczegóły: ${textarea}, pilne? ${checkbox}`)
     }
 
     function handleTextInputChange(event: React.ChangeEvent<HTMLInputElement>){

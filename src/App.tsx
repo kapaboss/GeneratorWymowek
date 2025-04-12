@@ -6,23 +6,17 @@ import {useState} from "react";
 
 function App() {
 
-   const [jakisstring, setjakisString] = useState<string>("init value")
+    const [messages, setMessages] = useState<string[]>([]);
 
-    let ll = []
-
-    function getString(m:string){
-        console.log(m)
-        ll.push(m)
-        console.log(ll)
-
+    function getMsg(text: string){
+        setMessages(prevMessage => [...prevMessage, text]);
     }
-
 
   return (
     <>
-        <Form sendData={getString} />
-        <h2>Lista: Wymówek</h2>
-        <Lista wiadmosc={jakisstring}  a={"nowy string"} />
+        <Form sendString={getMsg} />
+
+        <Lista messages={messages}/>
 
     </>
   )
